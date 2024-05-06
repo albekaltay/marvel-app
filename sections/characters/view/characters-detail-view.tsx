@@ -77,15 +77,19 @@ const CharactersDetailView = () => {
   );
   return (
     <div className="px-24 py-12 xl:px-52 xl:py-4 ">
-      <MarvelDetailControler title={singleCharacter?.name + " " + "Detail"} />
       {singleCharacterLoading ? (
         <MarvelSkeletonDetailCard />
       ) : (
-        <MarvelDetailCard
-          src={source}
-          title={singleCharacter?.name}
-          content={content}
-        />
+        <>
+          <MarvelDetailControler
+            title={singleCharacter?.name + " " + "Detail"}
+          />
+          <MarvelDetailCard
+            src={source}
+            title={singleCharacter?.name}
+            content={content}
+          />
+        </>
       )}
     </div>
   );

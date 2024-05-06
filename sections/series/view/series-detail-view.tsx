@@ -6,6 +6,7 @@ import MarvelDetailCard, {
 } from "@/components/marvel/marvel-detail-card";
 import { MarvelSkeletonDetailCard } from "@/components/marvel/marvel-skeleton-detail";
 import { useToast } from "@/components/ui/use-toast";
+import MarvelDetailControler from "@/components/marvel/marvel-detail-controller";
 // redux
 import { useAppDispatch } from "@/redux/hooks/use-app-dispatch";
 import { useAppSelector } from "@/redux/hooks/use-app-selector";
@@ -78,15 +79,18 @@ const SeriesDetailView = () => {
     </>
   );
   return (
-    <div className="px-24 py-12 xl:px-52 xl:py-28 ">
+    <div className="px-24 py-12 xl:px-52 xl:py-4 ">
       {singleSeriesLoading ? (
         <MarvelSkeletonDetailCard />
       ) : (
-        <MarvelDetailCard
-          src={source}
-          title={singleSeries?.title}
-          content={content}
-        />
+        <>
+          <MarvelDetailControler title={singleSeries?.title + " " + "Detail"} />
+          <MarvelDetailCard
+            src={source}
+            title={singleSeries?.title}
+            content={content}
+          />
+        </>
       )}
     </div>
   );
